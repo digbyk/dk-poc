@@ -1,4 +1,8 @@
 <script setup>
+const { client: shopifyClient, cartId } = useShopify();
+const cart = await shopifyClient.checkout.fetch(cartId);
+console.log("header");
+console.log(cart);
 defineProps({
   src: String,
   alt: String,
@@ -26,5 +30,6 @@ defineProps({
         class="rounded-t-lg md:rounded-l-lg md:rounded-tr-none m-auto max-h-full"
       />
     </div>
+    {{ cart.lineItems.length }}
   </div>
 </template>

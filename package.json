@@ -22,11 +22,10 @@
     "instantsearch.css": "^7.4.5",
     "nuxt": "3.0.0",
     "nuxt-icon": "^0.1.8",
-    "search-insights": "^2.2.1"
-  },
-  "dependencies": {
+    "search-insights": "^2.2.1",
     "@pinia/nuxt": "^0.4.6",
     "pinia": "^2.0.28",
     "shopify-buy": "^2.17.1"
-  }
+  },
+  "dependencies": {}
 }

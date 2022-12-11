@@ -2,7 +2,11 @@
 import algoliarecommend from "@algolia/recommend";
 import aa from "search-insights";
 import { useShare } from "@vueuse/core";
-
+// import { useCountStore } from "../../../stores/countStore.js";
+// import { useCart } from "@/stores/cart.js";
+// const { cart } = useCart();
+const countStore = useCountStore();
+// const cart = useCart();
 const { share, isSupported } = useShare();
 
 aa("setUserToken", "test-user-321");
@@ -19,9 +23,9 @@ const { hits } = await index.search(route.params.isbn, {
 });
 const product = hits[0];
 
-const { $shopify } = useNuxtApp();
-const handle = "dinosaur-atlas";
-const shopifyProduct = await $shopify.product.fetchByHandle(handle);
+// const { $shopify } = useNuxtApp();
+// const handle = "dinosaur-atlas";
+// const shopifyProduct = await $shopify.product.fetchByHandle(handle);
 
 const recommend = algoliarecommend(
   runtimeConfig.algolia.applicationId,
@@ -37,17 +41,17 @@ const { results } = await recommend.getRelatedProducts([
 ]);
 const relatedProducts = results[0].hits;
 
-const addToCartClicked = async (id) => {
-  const { $cart } = useNuxtApp();
-  console.log($cart);
-  const lineItemsToUpdate = [{ variantId: id, quantity: 1 }];
-  const cart = await $shopify.checkout.addLineItems(
-    $cart.id,
-    lineItemsToUpdate
-  );
-  $cart.value = cart;
-  console.log($cart.value);
-};
+// const addToCartClicked = async (id) => {
+//   const { $cart } = useNuxtApp();
+//   console.log($cart);
+//   const lineItemsToUpdate = [{ variantId: id, quantity: 1 }];
+//   const cart = await $shopify.checkout.addLineItems(
+//     $cart.id,
+//     lineItemsToUpdate
+//   );
+//   $cart.value = cart;
+//   console.log($cart.value);
+// };
 
 const buyButtonClicked = async (id) => {
   // aa("sendEvents", [
@@ -103,12 +107,8 @@ useHead({
             {{ subject }}
           </li>
         </ul>
-        <div>
-          <ul>
-            <li v-for="lineItem in $cart?.lineItems">{{ lineItem }}</li>
-          </ul>
-        </div>
-        <table v-if="shopifyProduct" class="m-1 p0 w-full">
+        {{ cart }}
+        <!-- <table v-if="shopifyProduct" class="m-1 p0 w-full">
           <thead>
             <tr>
               <th>Format</th>
@@ -137,7 +137,7 @@ useHead({
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
 
         <button
           @click="buyButtonClicked"

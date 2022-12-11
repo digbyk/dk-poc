@@ -1,6 +1,6 @@
 import Client from "shopify-buy";
 
-export default defineNuxtPlugin(async (nuxtApp) => {
+export default function useShopify() {
   const runtimeConfig = useRuntimeConfig();
   const client = Client.buildClient({
     domain: runtimeConfig.public.shopify.domain,
@@ -8,9 +8,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   });
 
   return {
-    provide: {
-      shopify: client,
-      cart: await client.checkout.create(),
-    },
+    client,
   };
-});
+}

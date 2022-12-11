@@ -3,7 +3,6 @@ defineProps({
   src: String,
   alt: String,
 });
-const cart = useState("cart");
 </script>
 
 <template>
@@ -27,6 +26,5 @@ const cart = useState("cart");
         class="rounded-t-lg md:rounded-l-lg md:rounded-tr-none m-auto max-h-full"
       />
     </div>
-    {{ $cart.lineItems.length }}
   </div>
 </template>

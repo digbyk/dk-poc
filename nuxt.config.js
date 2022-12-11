@@ -1,7 +1,16 @@
 export default defineNuxtConfig({
-  modules: ["@vueuse/nuxt", "@nuxtjs/algolia", "@unocss/nuxt", "nuxt-icon"],
+  modules: [
+    "@vueuse/nuxt",
+    "@nuxtjs/algolia",
+    "@unocss/nuxt",
+    "nuxt-icon",
+    "@pinia/nuxt",
+  ],
   buildModules: [],
   build: {},
+  imports: {
+    dirs: ["stores"],
+  },
   runtimeConfig: {
     public: {
       shopify: {

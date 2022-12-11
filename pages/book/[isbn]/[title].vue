@@ -6,7 +6,7 @@ import { useShare } from "@vueuse/core";
 // import { useCart } from "@/stores/cart.js";
 // const { cart } = useCart();
 const countStore = useCountStore();
-// const cart = useCart();
+const cart = useCart();
 const { share, isSupported } = useShare();
 
 aa("setUserToken", "test-user-321");
@@ -81,6 +81,7 @@ useHead({
 </script>
 
 <template>
+  {{ countStore.count }}{{ cart }}
   <div class="w-full">
     <div class="flex flex-col md:flex-row">
       <div class="w-full md:w-1/2 h-60 md:h-80">

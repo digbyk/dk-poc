@@ -9,7 +9,7 @@ console.log(cart.id);
 
 export const useCart = defineStore("cart", {
   state: () => ({
-    cart: cart,
+    cart: null,
   }),
 
   getters: {

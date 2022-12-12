@@ -27,6 +27,7 @@ export const useShopify = async () => {
     const lineItemsToUpdate = [{ variantId: id, quantity: count }];
     cart = await client.checkout.addLineItems(cart.id, lineItemsToUpdate);
     cartLines.value++;
+    console.log(cartLines.value);
     console.log(cart);
   };
 

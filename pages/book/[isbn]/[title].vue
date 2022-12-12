@@ -19,7 +19,7 @@ const { hits } = await index.search(route.params.isbn, {
 });
 const product = hits[0];
 
-const { getProduct, addLineItem } = await useShopify();
+const { getProduct, addLineItem, cartLines, getCart } = await useShopify();
 const shopifyProduct = await getProduct("dinosaur-atlas");
 
 const recommend = algoliarecommend(
@@ -99,6 +99,16 @@ useHead({
           >
             {{ subject }}
           </li>
+        </ul>
+        CartLines: {{ cartLines }}
+        <ul>
+          <li v-for="lineItem in getCart().lineItems">
+            {{ lineItem.title }}
+          </li>
+          Count:
+          {{
+            getCart().lineItems?.length
+          }}
         </ul>
         <table v-if="shopifyProduct" class="m-1 p0 w-full">
           <thead>

@@ -100,12 +100,12 @@ useHead({
             {{ subject }}
           </li>
         </ul>
-        CartLines: {{ cartLines }}
         <ul>
           <li v-for="lineItem in getCart().lineItems">
-            {{ lineItem.title }}
+            {{ lineItem.title }} {{ lineItem.variant.title }}
+            {{ lineItem.quantity }}
           </li>
-          Count:
+          Count:es
           {{
             getCart().lineItems?.length
           }}

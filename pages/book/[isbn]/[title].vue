@@ -3,13 +3,6 @@ import algoliarecommend from "@algolia/recommend";
 import aa from "search-insights";
 import { useShare } from "@vueuse/core";
 
-const { client: shopifyClient, cartId } = useShopify();
-// const cart = ref();
-const cart = await shopifyClient.checkout.fetch(cartId);
-// import { useCountStore } from "../../../stores/countStore.js";
-// import { useCart } from "@/stores/cart.js";
-// const { cart } = useCart();
-// const countStore = useCountStore();
 const { share, isSupported } = useShare();
 
 aa("setUserToken", "test-user-321");
@@ -26,9 +19,8 @@ const { hits } = await index.search(route.params.isbn, {
 });
 const product = hits[0];
 
-// const { $shopify } = useNuxtApp();
-const handle = "dinosaur-atlas";
-const shopifyProduct = await shopifyClient.product.fetchByHandle(handle);
+const { getProduct, addLineItem } = await useShopify();
+const shopifyProduct = await getProduct("dinosaur-atlas");
 
 const recommend = algoliarecommend(
   runtimeConfig.algolia.applicationId,
@@ -44,7 +36,8 @@ const { results } = await recommend.getRelatedProducts([
 ]);
 const relatedProducts = results[0].hits;
 
-const addToCartClicked = async (id) => {
+const addToCartClicked = async (id, count) => {
+  addLineItem(id, count);
   // const lineItemsToUpdate = [{ variantId: id, quantity: 1 }];
   // console.log(cart.id);
   // cart.value = await shopifyClient.checkout.addLineItems(
@@ -107,7 +100,6 @@ useHead({
             {{ subject }}
           </li>
         </ul>
-        {{ cart }}
         <table v-if="shopifyProduct" class="m-1 p0 w-full">
           <thead>
             <tr>
@@ -129,7 +121,7 @@ useHead({
               </td>
               <td class="text-center">
                 <button
-                  @click="addToCartClicked(variant.id)"
+                  @click="addToCartClicked(variant.id, 1)"
                   :data-id="variant.id"
                 >
                   <Icon name="ic:baseline-add-shopping-cart" />

@@ -7,7 +7,7 @@ console.log(client);
 const cart = await client.checkout.create();
 console.log(cart.id);
 
-export const useCart = defineStore("cart", {
+export const useCartStore = defineStore("cart", {
   state: () => ({
     cart: {},
   }),
@@ -18,6 +18,7 @@ export const useCart = defineStore("cart", {
 
   actions: {
     async initCart() {
+      console.log("Init cart");
       this.cart = null;
     },
 

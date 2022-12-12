@@ -12,6 +12,7 @@ import "@unocss/reset/tailwind.css";
 html {
   scroll-behavior: smooth;
 }
+
 body::-webkit-scrollbar {
   width: 1em;
 }

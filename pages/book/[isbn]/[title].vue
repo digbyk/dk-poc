@@ -3,6 +3,7 @@ import algoliarecommend from "@algolia/recommend";
 import aa from "search-insights";
 import { useShare } from "@vueuse/core";
 
+const { count } = useCounter();
 const { share, isSupported } = useShare();
 
 aa("setUserToken", "test-user-321");
@@ -38,12 +39,6 @@ const relatedProducts = results[0].hits;
 
 const addToCartClicked = async (id, count) => {
   addLineItem(id, count);
-  // const lineItemsToUpdate = [{ variantId: id, quantity: 1 }];
-  // console.log(cart.id);
-  // cart.value = await shopifyClient.checkout.addLineItems(
-  //   cartId,
-  //   lineItemsToUpdate
-  // );
 };
 
 const buyButtonClicked = async (id) => {
@@ -74,7 +69,10 @@ useHead({
 </script>
 
 <template>
+  <div @click="count++">{{ count }}</div>
+
   <div class="w-full">
+    <p>{{ cartLines }}</p>
     <div class="flex flex-col md:flex-row">
       <div class="w-full md:w-1/2 h-60 md:h-80">
         <BgImage :src="product.thumbnail" :alt="product.title" />
@@ -97,15 +95,16 @@ useHead({
             v-for="subject in product.subjects"
             class="m-1 p-1 py-0 rounded bg-sky-400 text-black"
           >
-            {{ subject }}
+            {{ subject }}s
           </li>
         </ul>
         <ul>
           <li v-for="lineItem in getCart().lineItems">
-            {{ lineItem.title }} {{ lineItem.variant.title }}
-            {{ lineItem.quantity }}
+            {{ lineItem.title }} - {{ lineItem.variant.title }}-
+            {{ lineItem.quantity }} - {{ lineItem.variant.price.currencyCode }}
+            {{ lineItem.variant.price.amount }}
           </li>
-          Count:es
+          Count:
           {{
             getCart().lineItems?.length
           }}

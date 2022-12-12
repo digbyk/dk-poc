@@ -1,5 +1,8 @@
 <script setup>
-const { cartLines, getLineItems } = await useShopify();
+import { useCounter } from "@vueuse/shared";
+
+const { getProduct, addLineItem, cartLines, getCart } = await useShopify();
+const { count } = useCounter();
 
 defineProps({
   src: String,
@@ -8,6 +11,7 @@ defineProps({
 </script>
 
 <template>
+  <div @click="count++">{{ count }}</div>
   <div
     class="w-full h-full bg-cover bg-no-repeat bg-center flex place-content-center rounded-t-lg md:rounded-tr-none"
     :style="{
@@ -31,7 +35,6 @@ defineProps({
     <nav>
       <NuxtLink to="/cart">Cart</NuxtLink>
     </nav>
-    <div>{{ getLineItems().length }}</div>
-    <div>{{ cartLines }}</div>
+    <div>{{ getCart().lineItems?.length }}</div>
   </div>
 </template>

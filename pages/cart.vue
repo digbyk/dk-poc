@@ -1,7 +1,5 @@
 <script setup>
-const { getCart, getLineItems } = await useShopify();
-const lineItems = getLineItems();
-console.log(lineItems);
+const { getProduct, addLineItem, cartLines, getCart } = await useShopify();
 useHead({
   title: "Cart",
   meta: [{ name: "description", content: "Cart" }],
@@ -10,9 +8,8 @@ useHead({
 
 <template>
   <div class="w-full">
-    {{ lineItems }}
     <ul>
-      <li v-for="lineItem in lineItems">
+      <li v-for="lineItem in getCart().lineItems">
         {{ lineItem.title }}
       </li>
     </ul>

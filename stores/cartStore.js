@@ -7,6 +7,9 @@ console.log(client);
 const cart = await client.checkout.create();
 console.log(cart.id);
 
+const $shopify = useNuxtApp();
+console.log($shopify.$shopify);
+
 export const useCartStore = defineStore("cart", {
   state: () => ({
     cart: {},

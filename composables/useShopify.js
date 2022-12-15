@@ -1,21 +1,22 @@
 import Client from "shopify-buy";
 
-const cartLines = ref(0);
-
-const runtimeConfig = useRuntimeConfig();
+const { domain, storefrontAccessToken } = useRuntimeConfig().public.shopify;
 const client = Client.buildClient({
-  domain: runtimeConfig.public.shopify.domain,
-  storefrontAccessToken: runtimeConfig.public.shopify.storefrontAccessToken,
+  domain,
+  storefrontAccessToken,
 });
 let cart = await client.checkout.create();
+const cartState = useState("cart", () => {
+  return { id: cart.id, lines: cart.lineItems.length };
+});
 
 export const useShopify = async () => {
   const getProduct = async (handle) => {
     return await client.product.fetchByHandle(handle);
   };
 
-  const getCart = () => {
-    return cart;
+  const getCart = async () => {
+    return await client.checkout.fetch(cartState.value.id);
   };
 
   const getLineItems = () => {
@@ -26,11 +27,12 @@ export const useShopify = async () => {
     const lineItemsToUpdate = [{ variantId: id, quantity: count }];
     cart = await client.checkout.addLineItems(cart.id, lineItemsToUpdate);
     console.log(cart);
-    cartLines.value = cart.lineItems.length;
+    cartState.value.id = cart.id;
+    cartState.value.lines = cart.lineItems.length;
   };
 
   return {
-    cartLines,
+    cartState,
     getProduct,
     getCart,
     addLineItem,

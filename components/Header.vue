@@ -1,8 +1,8 @@
 <script setup>
 import { useCounter } from "@vueuse/shared";
 
-const { getProduct, addLineItem, cartLines, getCart } = await useShopify();
-const { count } = useCounter();
+const { getProduct, addLineItem, cartLines, getCart, cartState } =
+  await useShopify();
 
 defineProps({
   src: String,
@@ -11,7 +11,8 @@ defineProps({
 </script>
 
 <template>
-  <div @click="count++">{{ count }}</div>
+  <div>{{ cartState.id }}</div>
+  <div>{{ cartState.lines }}</div>
   <div
     class="w-full h-full bg-cover bg-no-repeat bg-center flex place-content-center rounded-t-lg md:rounded-tr-none"
     :style="{

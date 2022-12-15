@@ -20,8 +20,10 @@ const { hits } = await index.search(route.params.isbn, {
 });
 const product = hits[0];
 
-const { getProduct, addLineItem, cartLines, getCart } = await useShopify();
+const { getProduct, addLineItem, cartLines, getCart, cartState } =
+  await useShopify();
 const shopifyProduct = await getProduct("dinosaur-atlas");
+const useCart = useState("cart");
 
 const recommend = algoliarecommend(
   runtimeConfig.algolia.applicationId,
@@ -70,7 +72,9 @@ useHead({
 
 <template>
   <div @click="count++">{{ count }}</div>
-
+  <div>UseCart: {{ useCart }}</div>
+  <div>{{ cartState.id }}</div>
+  <div>{{ cartState.lines }}</div>
   <div class="w-full">
     <p>{{ cartLines }}</p>
     <div class="flex flex-col md:flex-row">
@@ -97,17 +101,6 @@ useHead({
           >
             {{ subject }}s
           </li>
-        </ul>
-        <ul>
-          <li v-for="lineItem in getCart().lineItems">
-            {{ lineItem.title }} - {{ lineItem.variant.title }}-
-            {{ lineItem.quantity }} - {{ lineItem.variant.price.currencyCode }}
-            {{ lineItem.variant.price.amount }}
-          </li>
-          Count:
-          {{
-            getCart().lineItems?.length
-          }}
         </ul>
         <table v-if="shopifyProduct" class="m-1 p0 w-full">
           <thead>

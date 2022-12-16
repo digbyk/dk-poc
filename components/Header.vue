@@ -11,31 +11,14 @@ defineProps({
 </script>
 
 <template>
-  <div>{{ cartState.id }}</div>
-  <div>{{ cartState.lines }}</div>
-  <div
-    class="w-full h-full bg-cover bg-no-repeat bg-center flex place-content-center rounded-t-lg md:rounded-tr-none"
-    :style="{
-      'backdrop-filter': 'blur(118px)',
-      backgroundImage: `url(${src})`,
-    }"
-  >
-    <div
-      class="w-full h-full bg-cover bg-no-repeat bg-center flex place-content-center rounded-t-lg md:rounded-tr-none p-4"
-      :style="{
-        background: 'rgba(255, 255, 255, 0.6)',
-        'backdrop-filter': 'blur(20px) saturate(150%)',
-      }"
-    >
-      <img
-        src="/logo.png"
-        alt="DK"
-        class="rounded-t-lg md:rounded-l-lg md:rounded-tr-none m-auto max-h-full"
-      />
+  <div class="w-full flex-column">
+    <div>
+      <img src="/logo.png" alt="DK" class="m-auto" />
     </div>
-    <nav>
-      <NuxtLink to="/cart">Cart</NuxtLink>
+    <nav class="justify-center w-full flex mt-4">
+      <NuxtLink class="mx-4" to="/">Home</NuxtLink>
+      <NuxtLink class="mx-4" to="/search">Search</NuxtLink>
+      <NuxtLink class="mx-4" to="/cart">Cart: {{ cartState.lines }} </NuxtLink>
     </nav>
-    <div>{{ getCart().lineItems?.length }}</div>
   </div>
 </template>

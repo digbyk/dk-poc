@@ -23,7 +23,6 @@ const product = hits[0];
 const { getProduct, addLineItem, cartLines, getCart, cartState } =
   await useShopify();
 const shopifyProduct = await getProduct("dinosaur-atlas");
-const useCart = useState("cart");
 
 const recommend = algoliarecommend(
   runtimeConfig.algolia.applicationId,
@@ -71,10 +70,6 @@ useHead({
 </script>
 
 <template>
-  <div @click="count++">{{ count }}</div>
-  <div>UseCart: {{ useCart }}</div>
-  <div>{{ cartState.id }}</div>
-  <div>{{ cartState.lines }}</div>
   <div class="w-full">
     <p>{{ cartLines }}</p>
     <div class="flex flex-col md:flex-row">
@@ -133,14 +128,6 @@ useHead({
           </tbody>
         </table>
 
-        <button
-          @click="buyButtonClicked"
-          class="bg-green-500 my-2 p-2 rounded-sm text-light-300 flex flex-row align-center"
-        >
-          <span
-            >Add to basket <Icon name="ic:baseline-add-shopping-cart"
-          /></span>
-        </button>
         <button
           v-if="isSupported"
           @click="startShare"

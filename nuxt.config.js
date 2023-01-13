@@ -6,7 +6,12 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@pinia/nuxt",
   ],
-  buildModules: [],
+  buildModules: ["nuxt-vite"],
+  vite: {
+    build: {
+      target: "esnext",
+    },
+  },
   build: {},
   imports: {
     dirs: ["stores"],

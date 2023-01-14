@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@pinia/nuxt",
   ],
-  buildModules: ["nuxt-vite"],
+  buildModules: ["nuxt-vite", "@nuxtjs/google-fonts"],
   vite: {
     build: {
       target: "esnext",
@@ -34,6 +34,11 @@ export default defineNuxtConfig({
     },
     myPrivateToken: process.env.PRIVATE_TOKEN,
   },
+  googleFonts: {
+    families: {
+      Roboto: true,
+    },
+  },
   algolia: {
     apiKey: process.env.ALGOLIA_API_KEY,
     applicationId: process.env.ALGOLIA_APP_ID,
@@ -41,6 +46,7 @@ export default defineNuxtConfig({
     indexer: {},
   },
   ssr: false,
+  css: ["@unocss/reset/tailwind.css", "~/styles/global.css"],
   unocss: {
     // presets
     uno: true, // enabled `@unocss/preset-uno`

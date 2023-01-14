@@ -1,0 +1,22 @@
+html {
+  font-size: var(--font-size, 15px);
+  width: 100%;
+  width: 100vw;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  background: #666;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 0px solid slategrey;
+}

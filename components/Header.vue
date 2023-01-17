@@ -11,14 +11,16 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full flex-column">
+  <div class="flex flex-row justify-between">
     <div>
       <img src="/logo.png" alt="DK" class="m-auto" />
     </div>
-    <nav class="justify-center w-full flex mt-4">
-      <NuxtLink class="mx-4" to="/">Home</NuxtLink>
-      <NuxtLink class="mx-4" to="/search">Search</NuxtLink>
-      <NuxtLink class="mx-4" to="/cart">Cart: {{ cartState.lines }} </NuxtLink>
+    <nav class="flex items-center">
+      <NuxtLink class="ml-4 hover:underline" to="/">Home</NuxtLink>
+      <NuxtLink class="ml-4 hover:underline" to="/search">Search</NuxtLink>
+      <NuxtLink class="ml-4 hover:underline" to="/cart">
+        Cart: {{ cartState.lines }}
+      </NuxtLink>
     </nav>
   </div>
 </template>

@@ -34,11 +34,6 @@ export default defineNuxtConfig({
     },
     myPrivateToken: process.env.PRIVATE_TOKEN,
   },
-  googleFonts: {
-    families: {
-      Roboto: true,
-    },
-  },
   algolia: {
     apiKey: process.env.ALGOLIA_API_KEY,
     applicationId: process.env.ALGOLIA_APP_ID,
@@ -48,11 +43,8 @@ export default defineNuxtConfig({
   ssr: false,
   css: ["@unocss/reset/tailwind.css", "~/styles/global.css"],
   unocss: {
-    // presets
     uno: true, // enabled `@unocss/preset-uno`
     icons: true, // enabled `@unocss/preset-icons`
-
-    // core options
     shortcuts: [],
     rules: [],
   },

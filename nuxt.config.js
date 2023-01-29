@@ -12,7 +12,23 @@ export default defineNuxtConfig({
       target: "esnext",
     },
   },
-  build: {},
+  build: {
+    html: {
+      minify: {
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true,
+        preserveLineBreaks: false,
+        collapseWhitespace: true,
+      },
+    },
+  },
   imports: {
     dirs: ["stores"],
   },

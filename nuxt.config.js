@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "@unocss/nuxt",
     "nuxt-icon",
     "@pinia/nuxt",
+    "@vite-pwa/nuxt",
   ],
   buildModules: ["nuxt-vite", "@nuxtjs/google-fonts"],
   vite: {
@@ -58,5 +59,8 @@ export default defineNuxtConfig({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "Nuxt.js project" },
     ],
+  },
+  pwa: {
+    /* your pwa options */
   },
 });

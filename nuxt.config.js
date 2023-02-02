@@ -55,7 +55,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en", // it sets the language English
       },
-      link: [{ rel: "icon", type: "image/png", href: "favicon-32x32.png" }],
+      link: [{ rel: "icon", type: "image/png", href: "/favicon-32x32.png" }],
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -65,17 +65,17 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // Static page generated on-demand, revalidates in background
-    '/blog/**': { swr: true },
+    "/blog/**": { swr: true },
     // Static page generated on-demand once
-    '/articles/**': { static: true },
+    "/articles/**": { static: true },
     // Set custom headers matching paths
-    '/_nuxt/**': { headers: { 'cache-control': 's-maxage=0' } },
+    "/_nuxt/**": { headers: { "cache-control": "s-maxage=0" } },
     // Render these routes with SPA
-    '/admin/**': { ssr: false },
+    "/admin/**": { ssr: false },
     // Add cors headers
-    '/api/v1/**': { cors: true },
+    "/api/v1/**": { cors: true },
     // Add redirect headers
-    '/old-page': { redirect: '/new-page' },
-    '/old-page2': { redirect: { to: '/new-page', statusCode: 302 } }
-  }
+    "/old-page": { redirect: "/new-page" },
+    "/old-page2": { redirect: { to: "/new-page", statusCode: 302 } },
+  },
 });

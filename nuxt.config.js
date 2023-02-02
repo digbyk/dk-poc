@@ -63,22 +63,19 @@ export default defineNuxtConfig({
       ],
     },
   },
-  pwa: {
-    scope: "/",
-    srcDir: "./service-worker",
-    filename: "sw.ts",
-    strategies: "injectManifest",
-    injectRegister: true,
-    includeManifestIcons: true,
-    manifest: false,
-    injectManifest: {
-      globPatterns: [
-        "**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}",
-      ],
-      globIgnores: ["emojis/**", "shiki/**", "manifest**.webmanifest"],
-    },
-    devOptions: {
-      type: "module",
-    },
-  },
+  routeRules: {
+    // Static page generated on-demand, revalidates in background
+    '/blog/**': { swr: true },
+    // Static page generated on-demand once
+    '/articles/**': { static: true },
+    // Set custom headers matching paths
+    '/_nuxt/**': { headers: { 'cache-control': 's-maxage=0' } },
+    // Render these routes with SPA
+    '/admin/**': { ssr: false },
+    // Add cors headers
+    '/api/v1/**': { cors: true },
+    // Add redirect headers
+    '/old-page': { redirect: '/new-page' },
+    '/old-page2': { redirect: { to: '/new-page', statusCode: 302 } }
+  }
 });

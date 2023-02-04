@@ -64,21 +64,44 @@ export default defineNuxtConfig({
     },
   },
   pwa: {
-    scope: "/",
-    srcDir: "./service-worker",
-    filename: "sw.ts",
-    strategies: "injectManifest",
-    injectRegister: false,
-    includeManifestIcons: false,
-    manifest: false,
+    manifest: {
+      name: "Nuxt Vite PWA",
+      short_name: "NuxtVitePWA",
+      theme_color: "#ffffff",
+      icons: [
+        {
+          src: "pwa-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "any maskable",
+        },
+      ],
+    },
     injectManifest: {
       globPatterns: [
         "**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}",
       ],
-      globIgnores: ["emojis/**", "shiki/**", "manifest**.webmanifest"],
+      globIgnores: ["manifest**.webmanifest"],
+    },
+    workbox: {
+      navigateFallback: "/",
+    },
+    client: {
+      installPrompt: true,
+      periodicSyncForUpdates: 20,
     },
     devOptions: {
-      enabled: process.env.VITE_DEV_PWA === "true",
+      enabled: true,
       type: "module",
     },
   },

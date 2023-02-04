@@ -65,8 +65,8 @@ export default defineNuxtConfig({
   },
   pwa: {
     manifest: {
-      name: "Nuxt Vite PWA",
-      short_name: "NuxtVitePWA",
+      name: "DK Learning",
+      short_name: "DK Learning",
       theme_color: "#ffffff",
       icons: [
         {
@@ -91,7 +91,7 @@ export default defineNuxtConfig({
       globPatterns: [
         "**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}",
       ],
-      globIgnores: ["manifest**.webmanifest"],
+      //globIgnores: ["manifest**.webmanifest"],
     },
     workbox: {
       navigateFallback: "/",

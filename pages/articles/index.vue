@@ -15,9 +15,9 @@ const articles = [
     <h1 class="font-bold">List of articles</h1>
     <ol>
       <li v-for="article in articles">
-        <NuxtLink :to="`articles/${article.slug}`">{{
-          article.title
-        }}</NuxtLink>
+        <NuxtLink :to="`articles/${article.slug}`">
+          {{ article.title }}
+        </NuxtLink>
       </li>
     </ol>
   </div>

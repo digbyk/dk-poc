@@ -3,6 +3,7 @@ import "@unocss/reset/tailwind.css";
 </script>
 
 <template>
+  <VitePwaManifest />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

@@ -67,9 +67,9 @@ export default defineNuxtConfig({
     // Static page generated on-demand, revalidates in background
     "/blog/**": { swr: true },
     // Static page generated on-demand once
-    "/articles/**": { static: true },
+    "/articles/**": { swr: true },
     // Set custom headers matching paths
-    "/_nuxt/**": { headers: { "cache-control": "s-maxage=60" } },
+    "/_nuxt/**": { headers: { "cache-control": "s-maxage=0" } },
     // Render these routes with SPA
     "/admin/**": { ssr: false },
     // Add cors headers

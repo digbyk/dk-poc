@@ -1,3 +1,3 @@
 <template>
-  <div class="w-full">Article one</div>
+  <div class="w-full">Blog one</div>
 </template>

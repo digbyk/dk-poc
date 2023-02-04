@@ -13,7 +13,7 @@ defineProps({
 <template>
   <div class="flex flex-row justify-between">
     <div>
-      <img src="/logo.png" alt="DK" class="m-auto" />
+      <img src="/logo.png" alt="DK" class="m-auto" width="226" height="40" />
     </div>
     <nav class="flex items-center">
       <NuxtLink class="ml-4 hover:underline" to="/">Home</NuxtLink>

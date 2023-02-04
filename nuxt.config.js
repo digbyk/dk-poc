@@ -56,6 +56,13 @@ export default defineNuxtConfig({
         lang: "en", // it sets the language English
       },
       link: [{ rel: "icon", type: "image/png", href: "/favicon-32x32.png" }],
+      link: [
+        {
+          rel: "apple-touch-icon",
+          type: "image/png",
+          href: "/dk-logo-192x192.png",
+        },
+      ],
       meta: [
         { charset: "utf-8" },
         { name: "theme-color", content: "#ffffff" },

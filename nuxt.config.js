@@ -125,7 +125,7 @@ export default defineNuxtConfig({
     // Add cors headers
     "/api/v1/**": { cors: true },
     // Add redirect headers
-    "/old-page": { redirect: "/new-page" },
+    "/old-page": { redirect: "/blog" },
     "/old-page2": { redirect: { to: "/new-page", statusCode: 302 } },
   },
 });

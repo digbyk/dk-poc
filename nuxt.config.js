@@ -55,8 +55,8 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en", // it sets the language English
       },
-      link: [{ rel: "icon", type: "image/png", href: "/favicon-32x32.png" }],
       link: [
+        { rel: "icon", type: "image/png", href: "/favicon-32x32.png" },
         {
           rel: "apple-touch-icon",
           type: "image/png",

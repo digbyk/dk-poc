@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     head: {
       title: "DK Learning" || "",
       htmlAttrs: {
-        lang: "en", // it sets the language English
+        lang: "en",
       },
       link: [
         { rel: "icon", type: "image/png", href: "/favicon-32x32.png" },

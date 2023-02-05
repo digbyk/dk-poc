@@ -11,6 +11,7 @@ const article = {
 <template>
   <article class="w-full">
     <h1 class="font-bold">{{ article.title }}</h1>
+    <h2>{{ new Date() }}</h2>
     {{ article.body }}
   </article>
 </template>

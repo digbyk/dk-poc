@@ -113,6 +113,7 @@ export default defineNuxtConfig({
       type: "module",
     },
   },
+  ssr: false,
   routeRules: {
     // Static page generated on-demand, revalidates in background
     "/blog/**": { swr: true },
@@ -123,7 +124,7 @@ export default defineNuxtConfig({
     // Render these routes with SPA
     "/admin": { ssr: false },
     // Add cors headers
-    "/api/v1/**": { cors: true },
+    "/api/**": { cors: true },
     // Add redirect headers
     "/old-page": { redirect: "/blog" },
     "/old-page2": { redirect: { to: "/new-page", statusCode: 302 } },

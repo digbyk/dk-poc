@@ -1,5 +1,4 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "@types/node": "^18.11.19",
   "extends": "./.nuxt/tsconfig.json"
 }

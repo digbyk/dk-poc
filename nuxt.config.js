@@ -121,7 +121,7 @@ export default defineNuxtConfig({
     // Set custom headers matching paths
     "/_nuxt/**": { headers: { "cache-control": "s-maxage=0" } },
     // Render these routes with SPA
-    "/admin/**": { ssr: false },
+    "/admin": { ssr: false },
     // Add cors headers
     "/api/v1/**": { cors: true },
     // Add redirect headers

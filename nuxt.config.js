@@ -113,7 +113,6 @@ export default defineNuxtConfig({
       type: "module",
     },
   },
-  ssr: false,
   routeRules: {
     // Static page generated on-demand, revalidates in background
     "/blog/**": { swr: true },

@@ -119,7 +119,7 @@ export default defineNuxtConfig({
     // Static page generated on-demand once
     "/articles/**": {
       static: true,
-      headers: { "cache-control": "s-maxage=0" },
+      headers: { "cache-control": "s-maxage=10000" },
     },
     // Set custom headers matching paths
     "/_nuxt/**": { headers: { "cache-control": "s-maxage=0" } },

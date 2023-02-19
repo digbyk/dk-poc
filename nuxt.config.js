@@ -115,7 +115,10 @@ export default defineNuxtConfig({
   },
   routeRules: {
     // Static page generated on-demand, revalidates in background
-    "/blog/**": { swr: true },
+    "/blog/**": {
+      swr: true,
+      headers: { "cache-control": "s-maxage=10000" },
+    },
     // Static page generated on-demand once
     "/articles/**": {
       static: true,

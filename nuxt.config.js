@@ -116,7 +116,7 @@ export default defineNuxtConfig({
   nitro: {
     routeRules: {
       "/spa": { ssr: false },
-      "/static": { static: 3600 },
+      "/static": { static: true },
       "/swr": { swr: 60 },
     },
   },

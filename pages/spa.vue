@@ -11,6 +11,10 @@ const date = () => {
       <nuxt-link to="/ssr">SSR</nuxt-link>
       <nuxt-link to="/swr">SWR</nuxt-link>
       <nuxt-link to="/spa">SPA</nuxt-link>
+      <a href="/static">Static</a>
+      <a href="/ssr">SSR</a>
+      <a href="/swr">SWR</a>
+      <a href="/spa">SPA</a>
     </nav>
     <h1>SPA</h1>
     <h2>{{ date() }}</h2>

@@ -7,6 +7,6 @@ const date = () => {
 <template>
   <div>
     <h1>Static</h1>
-    <h2>{{ date }}</h2>
+    <h2>{{ date() }}</h2>
   </div>
 </template>

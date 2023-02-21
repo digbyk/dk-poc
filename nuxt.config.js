@@ -114,24 +114,8 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    // Static page generated on-demand, revalidates in background
-    "/blog/**": {
-      swr: true,
-      headers: { "cache-control": "s-maxage=10000" },
-    },
-    // Static page generated on-demand once
-    "/articles/**": {
-      static: true,
-      headers: { "cache-control": "s-maxage=10000" },
-    },
-    // Set custom headers matching paths
-    "/_nuxt/**": { headers: { "cache-control": "s-maxage=0" } },
-    // Render these routes with SPA
-    "/admin": { ssr: false },
-    // Add cors headers
-    "/api/**": { cors: true },
-    // Add redirect headers
-    "/old-page": { redirect: "/blog" },
-    "/old-page2": { redirect: { to: "/new-page", statusCode: 302 } },
+    "/spa": { ssr: false },
+    "/static": { static: true },
+    "/swr": { swr: true },
   },
 });

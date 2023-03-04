@@ -73,8 +73,9 @@ useHead({
               :href="cart.webUrl"
               target="_tab"
               class="text-white bg-red px-4 py-2"
-              >Checkout now</a
             >
+              Checkout now
+            </a>
           </td>
         </tr>
       </tbody>

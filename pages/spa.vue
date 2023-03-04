@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+const config = useRuntimeConfig();
 const date = () => {
-  return new Date()
-}
+  return new Date();
+};
 </script>
 
 <template>
@@ -18,5 +19,6 @@ const date = () => {
     </nav>
     <h1>SPA</h1>
     <h2>{{ date() }}</h2>
+    <pre>{{ config }}</pre>
   </div>
 </template>

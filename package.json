@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@algolia/recommend-js": "^1.3.1",
+    "@clerk/clerk-js": "^4.29.1",
     "@iconify-json/carbon": "^1.1.11",
     "@iconify-json/mdi": "^1.1.36",
     "@nuxtjs/algolia": "^1.3.1",

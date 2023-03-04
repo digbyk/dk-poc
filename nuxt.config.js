@@ -20,10 +20,11 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       shopify: {
-        domain: process.env.SHOPIFY_DOMAIN,
-        storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-        unoptimized: false,
+        domain: "",
+        storefrontAccessToken: "",
+        unoptimized: true,
       },
+      test: "",
       gql: {
         clients: {
           default: {
@@ -32,12 +33,13 @@ export default defineNuxtConfig({
           },
         },
       },
+      clerk: {
+        publishableKey: "",
+      },
     },
-    myPrivateToken: process.env.PRIVATE_TOKEN,
+    clerkSecretKey: "secret",
   },
   algolia: {
-    apiKey: process.env.ALGOLIA_API_KEY,
-    applicationId: process.env.ALGOLIA_APP_ID,
     recommend: true,
     indexer: {},
   },
@@ -72,6 +74,7 @@ export default defineNuxtConfig({
     },
   },
   pwa: {
+    registerType: "autoUpdate",
     manifest: {
       name: "DK Learning",
       short_name: "DK Learning",
@@ -95,14 +98,16 @@ export default defineNuxtConfig({
         },
       ],
     },
-    injectManifest: {
-      globPatterns: [
-        "**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}",
-      ],
-      //globIgnores: ["manifest**.webmanifest"],
-    },
+    // injectManifest: {
+    //   globPatterns: [
+    //     "**/*.{js,json,css,html,txt,svg,png,ico,webp,woff,woff2,ttf,eot,otf,wasm}",
+    //   ],
+    //   //globIgnores: ["manifest**.webmanifest"],
+    // },
     workbox: {
       navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+      sourcemap: true,
     },
     client: {
       installPrompt: true,

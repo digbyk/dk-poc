@@ -124,12 +124,12 @@ export default defineNuxtConfig({
     "/articles/**": { static: true },
     "/swr": { swr: 60 },
   },
-  nitro: {
-    routeRules: {
-      "/spa": { ssr: false },
-      "/static/**": { static: true },
-      "/articles/**": { static: true },
-      "/swr": { swr: 60 },
-    },
-  },
+  // nitro: {
+  //   routeRules: {
+  //     "/spa": { ssr: false },
+  //     "/static/**": { static: true },
+  //     "/articles/**": { static: true },
+  //     "/swr": { swr: 60 },
+  //   },
+  // },
 });

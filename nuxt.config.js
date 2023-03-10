@@ -125,7 +125,6 @@ export default defineNuxtConfig({
     "/swr": { swr: 60 },
   },
   nitro: {
-    preset: "netlify-edge",
     routeRules: {
       "/spa": { ssr: false },
       "/static/**": { static: true },

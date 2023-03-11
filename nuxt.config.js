@@ -124,6 +124,13 @@ export default defineNuxtConfig({
     "/articles/**": { prerender: true },
     "/swr": { swr: 60 },
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/articles"],
+      ignore: ["/tak", "/konfiguration", "/checkout"],
+    },
+  },
   // nitro: {
   //   routeRules: {
   //     "/spa": { ssr: false },

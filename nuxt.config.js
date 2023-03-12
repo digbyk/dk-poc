@@ -127,7 +127,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/articles"],
+      routes: ["/articles/**"],
       ignore: ["/tak", "/configuration", "/checkout"],
     },
   },

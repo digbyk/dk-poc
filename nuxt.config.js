@@ -129,6 +129,11 @@ export default defineNuxtConfig({
       routes: ["/articles/**"],
       ignore: ["/tak", "/configuration", "/checkout"],
     },
+    esbuild: {
+      options: {
+        target: "esnext",
+      },
+    },
   },
   // nitro: {
   //   routeRules: {

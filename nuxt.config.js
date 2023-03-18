@@ -43,6 +43,7 @@ export default defineNuxtConfig({
     recommend: true,
     indexer: {},
   },
+  ssr: false,
   css: ["@unocss/reset/tailwind.css", "~/styles/global.css"],
   unocss: {
     uno: true, // enabled `@unocss/preset-uno`

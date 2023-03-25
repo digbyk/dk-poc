@@ -1,8 +1,9 @@
 <script setup>
-const { getProduct, addLineItem, cartLines, getCart, cartState } =
-  await useShopify();
-const cart = await getCart();
-console.log(cart);
+// const { getProduct, addLineItem, cartLines, getCart, cartState } =
+//   await useShopify();
+// const cart = await getCart();
+// console.log(cart);
+const cart = [];
 useHead({
   title: "Cart",
   meta: [{ name: "description", content: "Cart" }],

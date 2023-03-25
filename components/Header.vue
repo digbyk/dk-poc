@@ -1,8 +1,8 @@
 <script setup>
 import { useCounter } from "@vueuse/shared";
 
-const { getProduct, addLineItem, cartLines, getCart, cartState } =
-  await useShopify();
+// const { getProduct, addLineItem, cartLines, getCart, cartState } =
+//   await useShopify();
 
 const navItems = [
   { text: "Home", path: "/" },
@@ -29,7 +29,7 @@ defineProps({
         >{{ navItem.text }}</NuxtLink
       >
       <NuxtLink class="ml-4 hover:underline" to="/cart">
-        Cart: {{ cartState.lines }}
+        <!-- Cart: {{ cartState.lines }} -->
       </NuxtLink>
     </nav>
   </div>

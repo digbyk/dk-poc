@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   buildModules: ["nuxt-vite", "@nuxtjs/google-fonts"],
   vite: {
     build: {
-      target: "es2022",
+      target: "esnext",
     },
   },
   build: {},

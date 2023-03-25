@@ -20,9 +20,9 @@ const { hits } = await index.search(route.params.isbn, {
 });
 const product = hits[0];
 
-const { getProduct, addLineItem, cartLines, getCart, cartState } =
-  await useShopify();
-const shopifyProduct = await getProduct("dinosaur-atlas");
+// const { getProduct, addLineItem, cartLines, getCart, cartState } =
+//   await useShopify();
+// const shopifyProduct = await getProduct("dinosaur-atlas");
 
 const recommend = algoliarecommend(
   runtimeConfig.algolia.applicationId,
@@ -117,12 +117,12 @@ useHead({
                 }}
               </td>
               <td class="text-center">
-                <button
+                <!-- <button
                   @click="addToCartClicked(variant.id, 1)"
                   :data-id="variant.id"
                 >
                   <Icon name="ic:baseline-add-shopping-cart" />
-                </button>
+                </button> -->
               </td>
             </tr>
           </tbody>

@@ -27,9 +27,9 @@ export default defineNuxtConfig({
       test: "",
       gql: {
         clients: {
-          default: {
-            host: process.env.GRAPHCMS_ENDPOINT,
-            token: process.env.GRAPHCMS_API_KEY,
+          hygraph: {
+            host: "",
+            token: "",
           },
         },
       },

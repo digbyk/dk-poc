@@ -72,6 +72,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  routeRules: {
+    "/articles/**": { static: true },
+  },
   pwa: {
     registerType: "autoUpdate",
     manifest: {
@@ -117,25 +120,4 @@ export default defineNuxtConfig({
       type: "module",
     },
   },
-  routeRules: {
-    "/spa": { ssr: false },
-    "/static/**": { static: true },
-    "/articles/**": { prerender: true },
-    "/swr": { swr: 60 },
-  },
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/articles/**"],
-      ignore: ["/tak", "/configuration", "/checkout"],
-    },
-  },
-  // nitro: {
-  //   routeRules: {
-  //     "/spa": { ssr: false },
-  //     "/static/**": { static: true },
-  //     "/articles/**": { static: true },
-  //     "/swr": { swr: 60 },
-  //   },
-  // },
 });

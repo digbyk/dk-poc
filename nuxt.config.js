@@ -74,6 +74,8 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/articles/**": { static: true },
+    "/book/**": { static: true },
+    "/**": { static: true },
   },
   pwa: {
     registerType: "autoUpdate",
